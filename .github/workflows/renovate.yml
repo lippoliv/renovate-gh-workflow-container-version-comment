@@ -23,7 +23,5 @@ jobs:
         env:
           LOG_LEVEL: "debug"
           RENOVATE_CONFIG_FILE: "${{ github.workspace }}/renovate.json"
-          RENOVATE_ENDPOINT: https://git.keine.cloud/api/v1
-          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_TOKEN: ${{ secrets.GH_TOKEN }}
           RENOVATE_REPOSITORIES: ${{ format('["{0}"]', github.repository) }}
-          GITHUB_COM_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -4,7 +4,7 @@
         "config:base",
         "helpers:pinGitHubActionDigests"
     ],
-    "platform":            "gitea",
+    "platform":            "github",
     "automerge":           false,
     "semanticCommits":     "enabled",
     "semanticCommitType":  "build",
