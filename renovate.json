@@ -1,0 +1,14 @@
+{
+    "$schema":             "https://docs.renovatebot.com/renovate-schema.json",
+    "extends":             [
+        "config:base",
+        "helpers:pinGitHubActionDigests"
+    ],
+    "platform":            "gitea",
+    "automerge":           false,
+    "semanticCommits":     "enabled",
+    "semanticCommitType":  "build",
+    "semanticCommitScope": "deps",
+    "dependencyDashboard": false,
+    "prHourlyLimit": 0
+}

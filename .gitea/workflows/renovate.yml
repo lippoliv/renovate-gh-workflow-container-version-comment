@@ -1,0 +1,29 @@
+name: renovate
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 0 * * *"
+
+  push:
+    branches:
+      - main
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    container: ghcr.io/renovatebot/renovate@sha256:e21ca1043a6fd060fb58947b2981dae7a1dcd35ec03acf8b4e89ceacdcd2b062 # 37.140.10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Renovate
+        run: renovate
+        env:
+          LOG_LEVEL: "debug"
+          RENOVATE_CONFIG_FILE: "${{ github.workspace }}/renovate.json"
+          RENOVATE_ENDPOINT: https://git.keine.cloud/api/v1
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_REPOSITORIES: ${{ format('["{0}"]', github.repository) }}
+          GITHUB_COM_TOKEN: ${{ secrets.GH_TOKEN }}
